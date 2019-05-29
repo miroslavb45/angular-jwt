@@ -33,7 +33,7 @@ export class LoginService {
   }
 
   login(username: string, password: string) {
-      return this.http.post<any>("http://localhost:3000/users/login", { username, password })
+      return this.http.post<any>("https://devdevdev.tk:3001/users/login", { username, password })
           .pipe(map(user => {
             console.log(JSON.stringify(user.token))
               // login successful if there's a jwt token in the response
@@ -49,7 +49,7 @@ export class LoginService {
   }
 
   getUserRoles(){
-    return this.http.get<any>("http://localhost:3000/user-roles/", { withCredentials: true }).toPromise();
+    return this.http.get<any>("https://devdevdev.tk:3001/user-roles/", { withCredentials: true }).toPromise();
   }
 
   logout() {
