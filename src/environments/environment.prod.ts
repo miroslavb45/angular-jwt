@@ -1,3 +1,11 @@
+const baseRestURL = "http://localhost:3001"
 export const environment = {
-  production: true
+  production: true,
+  restApi: {
+    login:  baseRestURL + "/login",
+    logout: baseRestURL + "/logout",
+    register: baseRestURL + "/register",
+    renewToken: baseRestURL + "/user/renewtoken",
+    userRoles: baseRestURL + "/user-roles"
+  }
 };

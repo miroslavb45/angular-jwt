@@ -14,8 +14,6 @@ export class AuthGuard implements CanActivate {
         const currentUser = this.authenticationService.currentUserValue;
     
         if (currentUser) {
-            console.log(currentUser.roles);
-
             // logged in so return true
             return true;
         }
@@ -35,9 +33,27 @@ export class UserAuthGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const currentUser = this.authenticationService.currentUserValue;
-        if (currentUser) {
-            console.log(currentUser);
+        if (currentUser.roles.includes("USER")) {
             // logged in so return true
+            return true;
+        }
+
+        // not logged in so redirect to login page with the return url
+        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+        return false;
+    }
+}
+@Injectable({ providedIn: 'root' })
+export class AdminAuthGuard implements CanActivate {
+    constructor(
+        private router: Router,
+        private authenticationService: LoginService
+    ) { }
+
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+        const currentUser = this.authenticationService.currentUserValue;
+        if (currentUser && currentUser.roles.includes("ADMIN")) {
+            console.log(currentUser.roles)
             return true;
         }
 

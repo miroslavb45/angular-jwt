@@ -2,6 +2,6 @@
     id: number;
     username: string;
     password: string;
-    roles: [];
+    roles: string[];
     token?: string;
 }
