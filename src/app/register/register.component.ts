@@ -29,13 +29,7 @@ export class RegisterComponent implements OnInit {
       const val = this.form.value;
 
       if (val.email && val.password) {
-          this.authService.register(val.email, val.password)
-              .subscribe(
-                  (data) => {
-                    console.log(data);
-                      console.log("User is logged in");
-                  }
-              );
+          this.authService.register(val.email, val.password);
       }
   }
 

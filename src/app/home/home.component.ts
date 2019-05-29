@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
+import { User } from '../models';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,14 @@ import { LoginService } from '../login.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  private user;
 
   constructor(private loginService: LoginService) { 
 
   }
 
-  async ngOnInit() {
-    console.log(await this.loginService.getUserRoles());
+  ngOnInit() {
+    this.user = this.loginService.currentUserValue.username;
   }
 
 }

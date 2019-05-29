@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   form:FormGroup;
 
   constructor(private fb:FormBuilder, 
-               private authService: LoginService, 
-               private router: Router) {
+               private authService: LoginService
+              ) {
 
       this.form = this.fb.group({
           email: ['',Validators.required],
@@ -29,14 +29,7 @@ export class LoginComponent implements OnInit {
       const val = this.form.value;
 
       if (val.email && val.password) {
-          this.authService.login(val.email, val.password)
-              .subscribe(
-                  (data) => {
-                    console.log(data);
-                      console.log("User is logged in");
-                      this.router.navigateByUrl('/home');
-                  }
-              );
+          this.authService.login(val.email, val.password);
       }
   }
 

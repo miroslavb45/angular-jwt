@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
 }
 
 @Injectable({ providedIn: 'root' })
-export class UserAuthGuard implements CanActivate {
+export class AuthenticatedAuthGuard implements CanActivate {
     constructor(
         private router: Router,
         private authenticationService: LoginService
@@ -33,7 +33,7 @@ export class UserAuthGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const currentUser = this.authenticationService.currentUserValue;
-        if (currentUser.roles.includes("USER")) {
+        if (currentUser) {
             // logged in so return true
             return true;
         }

@@ -11,6 +11,9 @@ import { FormsModule, ReactiveFormsModule, FormBuilder }   from '@angular/forms'
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { CookieService } from 'ngx-cookie-service';
 import { RegisterComponent } from './register/register.component';
+import { LogoutComponent } from './logout/logout.component';
+import { ErrorHandlerComponent } from './error-handler/error-handler.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -18,7 +21,10 @@ import { RegisterComponent } from './register/register.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    LogoutComponent,
+    ErrorHandlerComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
