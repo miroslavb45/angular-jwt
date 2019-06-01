@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,9 @@ import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ErrorHandlerComponent } from './error-handler/error-handler.component';
 import { AdminComponent } from './admin/admin.component';
+import { GlobalErrorHandler } from './error-handler.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -31,12 +34,17 @@ import { AdminComponent } from './admin/admin.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },    
-    CookieService
+    CookieService,
+    {
+      provide: ErrorHandler, 
+      useClass: GlobalErrorHandler
+    }
 ],
   bootstrap: [AppComponent]
 })

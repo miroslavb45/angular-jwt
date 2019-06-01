@@ -1,0 +1,70 @@
+.form-field label {
+    display: block;
+    margin: 5px;
+    margin-left: 0;
+    color: rgba(255, 255, 255, 0.808);
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+
+.form-field input {
+    height: 25px;
+    width: 250px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.808);
+    font-family: 'Montserrat';
+    background: #ffffff17;
+    border: 1px solid #2f7fc0;
+}
+
+.form-buttons button {
+    width: 250px;
+    color: rgba(255, 255, 255, 0.808);
+    background: #2aa018;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    height: auto;
+    padding: 5px;
+    margin-top: 30px;
+    color: rgba(255, 255, 255, 0.808);
+}
+
+.form-buttons button:hover {
+    color: rgba(255, 255, 255, 0.808);
+    background: #2d7fc1;
+    cursor: pointer;
+}
+
+#loginBackground {
+    margin: auto;
+    background: #1a466940;
+    padding: 20px;
+    padding-top: 10px;
+}
+
+#wrapper {
+    background: #667db6;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: auto;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#wrapper h2 {
+    color: rgba(255, 255, 255, 0.808);
+    font-family: 'Montserrat';
+    font-weight: 300;
+    font-size: 26px;
+    margin: 0;
+    text-align: center;
+}

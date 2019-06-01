@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as moment from "moment";
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { User } from './models';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../environments/environment';
@@ -38,7 +38,7 @@ export class LoginService {
   }
 
   login(username: string, password: string) {
-    this.http.post<any>(environment.restApi.login, { username, password }).toPromise().then(user => {
+    this.http.post<any>(environment.restApi.login, { username, password }).pipe(catchError(val => of(`I caught: ${val}`))).toPromise().then(user => {
       if (user && user.token) {
         this._setCookie(user);                  // store user details and jwt token in cookie to keep user logged in between page refreshes
         this.currentUserSubject.next(user);
@@ -48,6 +48,7 @@ export class LoginService {
           this.router.navigateByUrl('/home');
         }
       }
+    }).catch(err => {
     });
   }
   _setCookie(user: any) {
@@ -74,8 +75,8 @@ export class LoginService {
 
   }
 
-  register(username: string, password: string) {
-    this.http.post<any>(environment.restApi.register, { username, password }).toPromise().then( () => {
+  register(username: string, password: string, email?: string, first_name?: string, last_name?: string) {
+    this.http.post<any>(environment.restApi.register, { username, password, email, first_name, last_name }).toPromise().then( () => {
       this._clearCookie();
       this.login(username, password);
  

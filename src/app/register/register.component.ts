@@ -20,16 +20,20 @@ export class RegisterComponent implements OnInit {
                private router: Router) {
 
       this.form = this.fb.group({
-          email: ['',Validators.required],
-          password: ['',Validators.required]
+          username: ['', Validators.required],
+          password: ['',Validators.required],
+          email: [''],
+          first_name: [''],
+          last_name: ['']
+
       });
   }
 
   register() {
       const val = this.form.value;
 
-      if (val.email && val.password) {
-          this.authService.register(val.email, val.password);
+      if (val.username && val.password) {
+          this.authService.register(val.username, val.password, val.email, val.first_name, val.last_name);
       }
   }
 
