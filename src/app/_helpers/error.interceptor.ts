@@ -13,8 +13,6 @@ export class ErrorInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(tap((event: HttpEvent<any>) => {}, (err: any) => {
             if (err instanceof HttpErrorResponse) {
-                console.warn(err.message)
-              console.log(err);
             }
           }));
     }

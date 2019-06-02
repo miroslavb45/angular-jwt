@@ -37,18 +37,21 @@ export class LoginService {
     return this.currentUserSubject.value;
   }
 
-  login(username: string, password: string) {
-    this.http.post<any>(environment.restApi.login, { username, password }).pipe(catchError(val => of(`I caught: ${val}`))).toPromise().then(user => {
+  login(username: string, password: string): any {
+    return this.http.post<any>(environment.restApi.login, { username, password }).toPromise().then(user => {
       if (user && user.token) {
         this._setCookie(user);                  // store user details and jwt token in cookie to keep user logged in between page refreshes
         this.currentUserSubject.next(user);
+        
         if(user.roles.includes("ADMIN")){
           this.router.navigateByUrl("/admin");
         }else{
           this.router.navigateByUrl('/home');
         }
+        return user.username;
       }
     }).catch(err => {
+return err;
     });
   }
   _setCookie(user: any) {
@@ -81,8 +84,12 @@ export class LoginService {
       this.login(username, password);
  
     }).catch(err => {
-      console.log("User already exists!")
+      console.error("User already exists!")
     });
   };
+
+  isAlive(){
+    return this.http.get<any>(environment.restApi.isAlive).toPromise();
+  }
 
 }

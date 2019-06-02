@@ -68,3 +68,31 @@
     margin: 0;
     text-align: center;
 }
+
+.error-password {
+    padding: 5px;
+    margin-top: 15px;
+    position: relative;
+}
+
+.error-password h3 {
+    font-size: 15px;
+    font-family: 'Montserrat';
+    font-weight: 300;
+    color: white;
+    margin: 0;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.error-password .mat-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: auto;
+}
+
+.form-field {
+    margin-bottom: 10px;
+}

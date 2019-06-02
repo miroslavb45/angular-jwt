@@ -24,6 +24,24 @@
                 <label>Password:</label>
                 <input name="password" formControlName="password" type="password">
             </div>
+
+            <div class="form-field">
+                <label>Repeat password:</label>
+                <input name="password_repeat" formControlName="password_repeat" type="password">
+            </div>
+            <div class="form-field">
+
+                <app-error-label></app-error-label>
+
+            </div>
+            <!-- <div class="form-field" [hidden]="passwordMismatch">
+                <div class="alert alert-danger" role="alert">
+                    <button type="button" class="close-alert">×</button>
+                    <i class="material-icons">error</i> ASD
+                </div>
+            </div> -->
+
+
             <div class="form-buttons">
                 <button class="button button-primary" (click)="register()">Register</button>
             </div>

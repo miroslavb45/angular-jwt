@@ -6,6 +6,8 @@ export const environment = {
     logout: baseRestURL + "/logout",
     register: baseRestURL + "/register",
     renewToken: baseRestURL + "/user/renewtoken",
-    userRoles: baseRestURL + "/user-roles"
+    userRoles: baseRestURL + "/user-roles",
+    isAlive: baseRestURL + "/is-alive"
+
   }
 };

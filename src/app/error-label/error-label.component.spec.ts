@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ErrorHandlerComponent } from './error-handler.component';
+import { ErrorLabelComponent } from './error-label.component';
 
-describe('ErrorHandlerComponent', () => {
-  let component: ErrorHandlerComponent;
-  let fixture: ComponentFixture<ErrorHandlerComponent>;
+describe('ErrorLabelComponent', () => {
+  let component: ErrorLabelComponent;
+  let fixture: ComponentFixture<ErrorLabelComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErrorHandlerComponent ]
+      declarations: [ ErrorLabelComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ErrorHandlerComponent);
+    fixture = TestBed.createComponent(ErrorLabelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
